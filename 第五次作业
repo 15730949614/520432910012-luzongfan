@@ -1,1 +1,42 @@
+PFont font;
+float r=0;
+float g=0;
+float b=0;
 
+void setup(){
+  size(640,640);
+  font = (createFont("微软雅黑",24));
+  textSize(20);
+  noCursor();
+}
+void draw(){
+  background(225);
+  fill(r,g,b);
+  ellipse(mouseX, mouseY, 10, 10);
+  fill(255,0,0);
+  rect(50,50,50,50);
+  fill(0,255,0);
+  rect(50,200,50,50);
+  fill(0,0,255);
+  rect(50,400,50,50);
+  dianji();
+}
+void mousePressed(){
+  if(mouseX>50&&mouseX<100&&mouseY>50&&mouseY<100){
+    r = 255;
+  }
+  else if(mouseX>50&&mouseX<100&&mouseY>200&&mouseY<250){
+    g = 255;
+  }
+  else if(mouseX>50&&mouseX<100&&mouseY>400&&mouseY<450){
+    b = 255;
+  }
+}
+
+void dianji(){
+  text("Draw a rectangle click on the T",50,500);
+  if ((keyPressed == true) && (key == 'T')){
+      rect(mouseX,mouseY,mouseX-pmouseX,mouseY-pmouseY);
+  }
+  
+}
