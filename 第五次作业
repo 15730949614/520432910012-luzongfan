@@ -20,6 +20,7 @@ void draw(){
   fill(0,0,255);
   rect(50,400,50,50);
   dianji();
+  quxian();
 }
 void mousePressed(){
   if(mouseX>50&&mouseX<100&&mouseY>50&&mouseY<100){
@@ -38,5 +39,10 @@ void dianji(){
   if ((keyPressed == true) && (key == 'T')){
       rect(mouseX,mouseY,mouseX-pmouseX,mouseY-pmouseY);
   }
-  
+}
+void quxian(){
+  if ((keyPressed == true) && (key == 'L')){
+  fill(r,g,b);
+  line(mouseX, mouseY, pmouseX, pmouseY);
+  }
 }
