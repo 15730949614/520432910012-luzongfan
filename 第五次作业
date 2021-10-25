@@ -26,12 +26,18 @@ void draw(){
 void mousePressed(){
   if(mouseX>50&&mouseX<100&&mouseY>50&&mouseY<100){
     r = 255;
+    g = 0;
+    b = 0;
   }
   else if(mouseX>50&&mouseX<100&&mouseY>200&&mouseY<250){
     g = 255;
+    r = 0;
+    b = 0;
   }
   else if(mouseX>50&&mouseX<100&&mouseY>400&&mouseY<450){
     b = 255;
+    r = 0;
+    g = 0;
   }
 }
 
