@@ -8,11 +8,12 @@ void setup(){
   font = (createFont("微软雅黑",24));
   textSize(20);
   noCursor();
+   background(225);
 }
 void draw(){
-  background(225);
-  fill(r,g,b);
-  ellipse(mouseX, mouseY, 10, 10);
+ 
+  
+  cursor(0);
   fill(255,0,0);
   rect(50,50,50,50);
   fill(0,255,0);
@@ -20,7 +21,7 @@ void draw(){
   fill(0,0,255);
   rect(50,400,50,50);
   dianji();
-  quxian();
+   quxian();
 }
 void mousePressed(){
   if(mouseX>50&&mouseX<100&&mouseY>50&&mouseY<100){
@@ -41,8 +42,8 @@ void dianji(){
   }
 }
 void quxian(){
-  if ((keyPressed == true) && (key == 'L')){
-  fill(r,g,b);
+  if (mousePressed == true){
+  stroke(r,g,b);
   line(mouseX, mouseY, pmouseX, pmouseY);
   }
 }
