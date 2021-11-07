@@ -1,0 +1,56 @@
+float a;
+float b=255;
+float c=255;
+void setup() {
+      size(640, 640);
+    }
+
+void draw() {
+  background(0);
+  translate(width/2, height/2);
+  recursion(200, 0);
+}
+
+void recursion(float r, int num) {
+  if (r > 10) {
+    if (r > 30) {
+      noFill();
+      stroke(255);
+    } else {
+      fill(255);
+    }
+    float m = mouseY/(float)height;
+    if (m > 0.5) {
+      m = 0.5;
+    }
+    r = r * m;
+    num ++;
+//绘制中心圆
+    ellipseMode(CENTER);
+    fill(random(30,255),b,c);
+    ellipse(0, 0, r * 2, r * 2);
+    pushMatrix();
+    rotate(millis()/800.0 * num);
+    translate(-r, -r);
+    recursion(r, num);
+    
+    popMatrix();
+    pushMatrix();
+    rotate(millis()/800.0 * num);
+    translate(-r, r);
+    recursion(r, num);
+    
+    popMatrix();
+    pushMatrix();
+    rotate(millis()/800.0 * num);
+    translate(r, -r);
+    recursion(r, num);
+    popMatrix();
+    
+    pushMatrix();
+    rotate(millis()/800.0 * num);
+    translate(r, r);
+    recursion(r, num);
+    popMatrix();
+  }
+}
