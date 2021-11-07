@@ -1,0 +1,54 @@
+Particle[] circles;
+
+void setup(){
+  background(255,255,0);
+    size(640,640); 
+    circles = new Particle[300];  
+    for(int i = 0;i < circles.length;i++){
+      circles[i] = new Particle(random(width),random(height));
+    }
+}
+
+void draw(){
+   noStroke();
+    for(int i = 0;i < circles.length;i++){
+        circles[i].randomMove();
+        circles[i].follow();
+        circles[i].draw();
+    }
+}
+class Particle{
+    float x,y;
+    int colorStyle;
+    float ratio;
+    float r;
+
+    Particle(float x_,float y_){
+        x = x_;
+        y = y_;
+        r = random(5,20);
+        colorStyle = int(random(4));
+        ratio = random(0.005,0.05);
+    }
+void randomMove(){
+    x = x + random(-5,5);
+    y = y + random(-5,5);
+  }
+void follow(){
+    x = x + (mouseX - x) * ratio;
+    y = y + (mouseY - y) * ratio;
+  }
+void draw(){
+    float alpha = 150;
+    if(colorStyle == 0){
+        fill(232,80,alpha);
+    }else if(colorStyle == 1){
+        fill(104,8,240,alpha);
+    }else if(colorStyle == 2){
+        fill(0,alpha);
+    }else if(colorStyle == 3){
+        fill(255,alpha);
+    }
+    ellipse(x,y,r * 2,r * 2);
+}
+}
